@@ -1,0 +1,75 @@
+/* SideNav Styles */
+.side_nav-container {
+    width: 315px;
+    height: 100vh;
+    background-color: #FFFFFF;
+    /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.logo-container {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo-icon {
+    font-size: 28px;
+    color: #000000;
+}
+
+.logo {
+    margin: 0;
+    font-size: 24px;
+    color: #000000;
+
+    font-weight: bold;
+}
+
+.version {
+    font-size: 12px;
+    color: #838383;
+}
+
+.side_nav-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 10px;
+}
+
+.side_nav-item {
+    text-decoration: none;
+    color: #9197B3;
+    font-size: 14px;
+    font-weight: medium;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.side_nav-item:hover {
+    background-color: #e9ecef;
+}
+
+.side_nav-icon {
+    font-size: 18px;
+}
+
+.side_nav-footer {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.side_nav-footer-link {
+    text-decoration: none;
+    color: #757575;
+    font-size: 14px;
+}

@@ -1,0 +1,48 @@
+.dashboard-content-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 80px;
+    width: 100%;
+}
+
+/* Header sec */
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    padding: 15px 0px;
+    border-bottom: none;
+    border-radius: 8px;
+}
+
+.content-header-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: #000000;
+}
+
+/* Stats section */
+.content-stats {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-between;
+    background-color: #FFFFFF;
+    border-radius: 18px;
+    height: 151px;
+}
+
+.content-stats > :not(:last-child)::after {
+    content: "";
+    height: 90%;
+    width: 1px;
+    background: #F0F0F0;
+    align-self: center;
+    flex-shrink: 0;
+}
+
+/* Content report table */
+/* .content_report_table { */
+/* } */
