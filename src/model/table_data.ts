@@ -1,4 +1,4 @@
-import { TableDataModel } from "../types/defn"
+import { TableDataModel } from "../lib/defn"
 
 const table_data: TableDataModel[] = [
     {

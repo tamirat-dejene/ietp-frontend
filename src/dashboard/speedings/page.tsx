@@ -1,10 +1,10 @@
 import { FaCarCrash } from 'react-icons/fa'
-import '../../styles/dashboard/content.css'
-import StatCard from './stat_card'
-import { SearchBox } from '../search_box'
-import ReportTable from '../report_table/report'
+import '../../styles/dashboard/speedings/content.css'
+import ReportTable from './table'
+import StatCard from '../../ui/stat_card'
+import { SearchBox } from '../../ui/search_box'
 
-const Content = () => {
+const MainDashboard = () => {
   return (
     <div className="dashboard-content-container">
       <header className="content-header">
@@ -23,4 +23,4 @@ const Content = () => {
   )
 }
 
-export default Content
+export default MainDashboard

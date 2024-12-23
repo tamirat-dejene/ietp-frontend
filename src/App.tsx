@@ -1,9 +1,11 @@
 import './styles/App.css'
-import Dashboard from './components/dashboard/Dashboard_1'
+import SideNav from './dashboard/sidenav'
+import { Outlet } from 'react-router-dom'
 function App() {
   return (
-    <main>
-      <Dashboard />
+    <main className='app_container'>
+      <SideNav />
+      <Outlet />
     </main>
   )
 }

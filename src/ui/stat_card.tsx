@@ -1,6 +1,6 @@
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa';
-import StatCardProps from '../../types/defn';
-import '../../styles/cards/cards.css';
+import { StatCardProps } from '../lib/defn';
+import '../styles/cards/cards.css';
 
 const StatCard = ({ title, icon, total, stat, change, duration }: StatCardProps) => {
     return (

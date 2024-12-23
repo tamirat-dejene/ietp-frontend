@@ -1,8 +1,8 @@
-import { SearchBox } from "../search_box"
-import '../../styles/report.css';
 import { table_data } from '../../model/table_data';
+import '../../styles/report.css';
+import PageButton from '../../ui/page_button';
+import { SearchBox } from '../../ui/search_box';
 import { TableRow } from "./row";
-import PageButton from "../page_button";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const ReportTable = () => {
@@ -38,13 +38,13 @@ const ReportTable = () => {
             <div className="report_table-pagination">
                 <p>Showing data 1 to 4 of  8K entries</p>
                 <div className="report_table-pagination-buttons">
-                    <PageButton isActive={true} icon={<FaArrowLeft color="" />} pageNum={''}/>
-                    <PageButton isActive={false} pageNum={1} />
+                    <PageButton isActive={false} icon={<FaArrowLeft color="" />} pageNum={''}/>
+                    <PageButton isActive={true} pageNum={1} />
                     <PageButton isActive={false} pageNum={2} />
                     <PageButton isActive={false} pageNum={3} />
                     <PageButton isActive={false} pageNum="..." />
                     <PageButton isActive={false} pageNum="8K" />
-                    <PageButton isActive={true} icon={<FaArrowRight />} pageNum="" />
+                    <PageButton isActive={false} icon={<FaArrowRight />} pageNum="" />
                 </div>
             </div>
         </div>
