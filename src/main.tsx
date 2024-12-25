@@ -1,15 +1,16 @@
 // import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './styles/index.css'
-import App from './App.tsx'
+import { createRoot } from "react-dom/client";
+import "./styles/index.css";
+import App from "./App.tsx";
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import NotFound from './404.tsx';
-import MainDashboard from './dashboard/speedings/page.tsx';
-import RecordPage from './record/record.tsx';
-import Login from './login/login.tsx';
-import Traffic from './traffic/traffic.tsx';
-import ProtectedRoute from './protect.tsx';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NotFound from "./404.tsx";
+import MainDashboard from "./dashboard/speedings/page.tsx";
+import RecordPage from "./record/record.tsx";
+import Login from "./login/login.tsx";
+import Traffic from "./traffic/traffic.tsx";
+import ProtectedRoute from "./protect.tsx";
+import Details from "./traffic/Details.tsx";
 
 const router = createBrowserRouter([{
   path: '/',
@@ -30,6 +31,11 @@ const router = createBrowserRouter([{
       path: '/traffic', element: <ProtectedRoute>
         <Traffic />
       </ProtectedRoute>
+    },
+    {
+      path: "/details/:id", element: <ProtectedRoute>
+          <Details />
+        </ProtectedRoute>
     },
     { path: '/login', element: <Login /> },
     { path: '/about', element: <div>About</div> },

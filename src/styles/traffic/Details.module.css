@@ -1,0 +1,91 @@
+/* Main container */
+.detailsContainer {
+  padding: 30px;
+  max-width: 1000px;
+  margin: 20px auto;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+}
+
+/* Page title */
+.title {
+  font-size: 3rem; /* Increased font size */
+  margin-bottom: 40px;
+  color: #2c3e50;
+  font-weight: bold;
+  text-transform: uppercase; /* Optional: Makes text all uppercase */
+  letter-spacing: 1px; /* Adds spacing between letters */
+}
+
+/* Table container */
+.tableContainer {
+  display: flex;
+  justify-content: center; /* Centers the table horizontally */
+  overflow-x: auto; /* Ensures table is scrollable on smaller screens */
+}
+
+/* Table styling */
+.table {
+  width: 90%; /* Adjust table width */
+  max-width: 800px; /* Limits the maximum width */
+  border-collapse: collapse;
+  margin: 0 auto; /* Centers table in its container */
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Ensures rounded corners for the table */
+}
+
+/* Table headers */
+th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: none;
+}
+
+/* Table cells */
+td {
+  padding: 15px;
+  font-size: 1rem;
+  color: #555;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Alternating row colors for better readability */
+tr:nth-child(even) td {
+  background-color: #f4f4f4;
+}
+
+/* Hover effect for table rows */
+tr:hover td {
+  background-color: #eaf4ff;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .detailsContainer {
+    padding: 15px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  th,
+  td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .table {
+    width: 100%;
+  }
+}
