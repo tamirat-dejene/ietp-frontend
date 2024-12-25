@@ -27,7 +27,7 @@ const ReportTable = () => {
             <div className="report_table">
                 <table>
                     <thead>
-                        <tr><th>Driver's name</th><th>Driver's Licence #</th><th>Car Plate #</th><th>Speed</th><th>Penalty count</th><th>City</th><th>Damage caused</th></tr>
+                        <tr><th>Driver's name</th><th>Driver's Licence #</th><th>Car Plate #</th><th>Speed</th><th>Penalty count</th><th>City</th><th>Date</th></tr>
                     </thead>
                     <tbody>
                         {table_data.map((data, index) => (<TableRow key={index} data={data} />))}

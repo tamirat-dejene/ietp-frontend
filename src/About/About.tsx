@@ -51,20 +51,20 @@ const About = () => {
     {
       name: "Bethlehem Ketema",
       department: "Civil Engineering",
-      image: "/src/assets/images/profile.jpg",
+      image: "/src/assets/images/profile.png",
     },
     {
       name: "Teklu Anbese",
       department: "Electromechanical Engineering",
-      image: "/src/assets/images/profile.jpg",
+      image: "/src/assets/images/profile.png",
     },
   ];
 
   return (
-    <div className={styles.container}>
-      <section className={styles.aboutSection}>
-        <h1 className={styles.title}>About Us</h1>
-        <p className={styles.description}>
+    <div className={styles.aboutPage_container}>
+      <section className={styles.aboutPage_aboutSection}>
+        <h1 className={styles.aboutPage_title}>About Us</h1>
+        <p className={styles.aboutPage_description}>
           We are Group 98 from IETP, dedicated to developing an IoT-Enabled
           Vehicle Speed Detection and Monitoring System. Our mission is to
           enhance road safety and create smarter, sustainable urban
@@ -72,20 +72,18 @@ const About = () => {
         </p>
       </section>
 
-      <section className={styles.teamSection}>
-        <h2 className={styles.subtitle}>Meet Our Team</h2>
-        <div className={styles.teamGrid}>
+      <section className={styles.aboutPage_teamSection}>
+        <h2 className={styles.aboutPage_subtitle}>Meet Our Team</h2>
+        <div className={styles.aboutPage_teamGrid}>
           {teamMembers.map((member, index) => (
-            <div key={index} className={styles.card}>
+            <div key={index} className={styles.aboutPage_card}>
               <img
                 src={member.image}
                 alt={member.name}
-                className={
-                  styles.aboutUsImage
-                } /* Updated class for circular images */
+                className={styles.aboutPage_aboutUsImage}
               />
-              <h3 className={styles.name}>{member.name}</h3>
-              <p className={styles.department}>{member.department}</p>
+              <h3 className={styles.aboutPage_name}>{member.name}</h3>
+              <p className={styles.aboutPage_department}>{member.department}</p>
             </div>
           ))}
         </div>

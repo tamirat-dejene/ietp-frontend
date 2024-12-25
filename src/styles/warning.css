@@ -1,0 +1,95 @@
+.warning-card {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+
+    /* top right */
+    position: fixed;
+    top: 14.35%;
+    right: 5.25%;
+
+    width: 400px;
+    height: 100px;
+    padding: 20px;
+    opacity: 0.9;
+
+    /* add border animation that revolves */
+    animation: border-animation 1s infinite;
+    border: 2px solid;
+    
+    border-image: conic-gradient(from var(--angle),
+            #d53e33 0deg 90deg,
+            #fbb300 90deg 180deg,
+            #377af5 180deg 270deg,
+            #399953 270deg 360deg) 1 stretch;
+    background: linear-gradient(45deg, #9CC495, #F08686);
+    animation: rotate 4s linear infinite, opacityChange 3s infinite alternate;
+}
+
+@keyframes border-animation {
+    to {
+        --angle: 360deg;
+    }
+}
+
+@property --opacity {
+    syntax: "<number>";
+    initial-value: 0.5;
+    inherits: false;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes opacityChange {
+    to {
+        --opacity: 1;
+    }
+}
+
+@keyframes rotate {
+    to {
+        --angle: 360deg;
+    }
+}
+
+.warning_card-close-btn {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #000;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.warn-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.warning-card-message {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.warning-card-licence-plate {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #dc3545;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.warning-card-speed {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #dc3545;
+    text-align: left;
+}
+
+

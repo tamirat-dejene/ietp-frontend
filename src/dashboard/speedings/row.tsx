@@ -1,5 +1,5 @@
 
-import { TableDataModel } from '../../../types/defn'
+import { TableDataModel } from '../../lib/defn'
 
 export const TableRow = ({ data }: { data: TableDataModel }) => {
     return (<tr>
@@ -9,6 +9,6 @@ export const TableRow = ({ data }: { data: TableDataModel }) => {
         <td>{data.speed}</td>
         <td>{data.penalty_count}</td>
         <td>{data.city}</td>
-        <td>{data.damage}</td>
+        <td>{data.report_date}</td>
     </tr>)
 }

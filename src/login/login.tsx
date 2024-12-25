@@ -1,129 +1,104 @@
-import React, { useEffect, useState } from 'react'
-import {Snackbar,Alert,linkClasses} from '@mui/material'
+import React, { useState } from 'react'
+import { Snackbar, Alert } from '@mui/material'
 
-import '../styles/login/login.css'
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useNavigate, useOutletContext } from 'react-router-dom';
+import { ButtonContainer, Form, FormContainer, FormLabel, FormLink, FormRow, IconButton, Input, InputData, Label, OuterFormContainer, StyledButton, Underline } from '../ui/form_components';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 function Login() {
-  const [email,setEmail]=useState('')
-  const [password,setPassword]=useState('');
-  const [toggle,setToggle] = useState('password');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('');
+  const [showpass, setShowpass] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState('');
-  const [severity, setSeverity] = useState('success');
+  const [severity, setSeverity] = useState<'success' | 'error' | 'info' | 'warning'>('success');
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const { setLoggedIn } = useOutletContext<{ setLoggedIn: (status: boolean) => void }>();
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
-
-    useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      setIsLoading(true);
-      buildSnackbar('Authenticating...', 'info');
-    }
-  }, []);
-  const validate = (): boolean => {
-    let error = '';
-    if (!email || !password) {
-      error = 'Please fill in all fields.';
-    } else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email)) {
-      error = 'Invalid email address.';
-    }
-    if(password.length <8){
-      error = 'Password must be at least 8 characters long.';
-      return false;
-    }
-    if (error) {
-      buildSnackbar(error, 'error');
-      return false;
-    }
-    return true;
-  };
-  const buildSnackbar = (message: string, severity: 'success' | 'error' | 'info') => {
+  
+  const buildSnackbar = (message: string, severity: 'success' | 'error' | 'info' | 'warning') => {
     setSnackbarMessage(message);
     setSeverity(severity);
     setSnackbarOpen(true);
   };
 
-  const submitHandler = async (e: React.FormEvent<HTMLFormElement>) => {
+  const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
 
-    if (!validate()) {
+    if (!email || !password) {
       setIsLoading(false);
       return;
     }
 
-    try {
-      const response = await fetch(`${process.env.IETP_WEB_URL}/IETP/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (!response.ok) {
-        buildSnackbar('Unable to login', 'error');
-        setIsLoading(false);
-        return;
-      }
-
+    fetch(`${process.env.API_URL}/auth/login`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password }),
+    }).then(async (response) => {
       const result = await response.json();
-      if (result.status === 'fail') {
-        buildSnackbar(result.data.message, 'error');
+      if (response.status == 401) {
+        buildSnackbar(result.message, 'error');
         setIsLoading(false);
         return;
       }
-
-      // const { name, url, token } = result.data;
-      // dispatch({ type: SET_USER, payload: { name, url } });
-
-      // localStorage.setItem('token', token);
-      // localStorage.setItem('user', JSON.stringify({ url, name }));
+      localStorage.setItem('token', JSON.stringify(response.headers.get('Authorization')));
 
       buildSnackbar('Login successful!', 'success');
-      setTimeout(() => navigate('/dashboard'), 2000);
-
-    } catch (error) {
-      console.error('Error:', error);
-      buildSnackbar('Error: ' + error.message, 'error');
-    } finally {
+      setLoggedIn(true);
+      navigate('/dashboard', { replace: true });
+    }).catch(() => {
+      buildSnackbar('An error occurred. Please try again.', 'error');
+    }).finally(() => {
       setIsLoading(false);
-    }
+    });
   };
 
   const closeSnackbar = () => {
     setSnackbarOpen(false);
   };
   return (
-    <div className="container">
-      <h3>Login</h3>
-      <form onSubmit={submitHandler}>
-        <div className="email">
-          <label htmlFor="email" className="email">Email: </label>
-          <input type="text" name="email" id="email" required value={email}
-          onChange={(e)=>setEmail(e.target.value)} />
-        </div>
-        <div className="password">
-          <label htmlFor="password" className="password">Password: </label>
-          <input type={toggle} name="password" id="password" required value={password}
-          onChange={(e)=>setPassword(e.target.value)} />
-          <div className="showPassword">
-            <input type="checkbox" id="showPassword" name="showPassword" 
-            onClick={() => toggle === 'password' ? setToggle('text') : setToggle('password')}
-            />
-            <label htmlFor="showPassword">Show Password</label>
+    <OuterFormContainer>
+      <FormContainer max_width="400px">
+        <FormLabel>Login</FormLabel>
+        <Form onSubmit={submitHandler}>
+          <FormRow>
+            <InputData>
+              <Input type="text"
+                value={email}
+                name="email"
+                id="email"
+                required
+                onChange={e => setEmail(e.target.value)}
+              />
+              <Label htmlFor="email">Email</Label>
+              <Underline />
+            </InputData>
+          </FormRow>
+          <FormRow>
+            <InputData>
+              <Input type={showpass ? 'text' : 'password'}
+                value={password}
+                name="password"
+                id="password"
+                required
+                onChange={e => setPassword(e.target.value)}
+              />
+              <IconButton type='button' onClick={() => setShowpass(!showpass)}>{showpass ? <FaEye /> : <FaEyeSlash />} </IconButton>
+              <Label htmlFor="password">Password</Label>
+              <Underline />
+            </InputData>
+          </FormRow>
+          <div style={{ position: 'relative' }}>
+            <FormLink to="/forgotpassword">Forgot Password? Reset</FormLink>
           </div>
-        </div>
-        <div className="forget">
-          <a href="#">Forgot Password?</a>
-        </div>
-        <div className="submit">
-          <input type="submit" value='Login' />
-        </div>
-      </form>
+          <ButtonContainer>
+            <StyledButton type="submit" disabled={isLoading}>Login</StyledButton>
+          </ButtonContainer>
+        </Form>
+      </FormContainer>
+
       <Snackbar
         open={snackbarOpen}
         onClose={closeSnackbar}
@@ -138,7 +113,7 @@ function Login() {
           {snackbarMessage}
         </Alert>
       </Snackbar>
-    </div>
+    </OuterFormContainer>
   )
 }
 

@@ -3,16 +3,19 @@ import {
   FaCar,
   FaPlusCircle,
   FaQuestionCircle,
-  FaSignInAlt,
   FaTachometerAlt,
 } from "react-icons/fa";
 import { FaGear } from "react-icons/fa6";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/dashboard/sidenav.css";
+import { LogoutButton } from "../ui/form_components";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
 
-type SideNavProps = object;
-
-const SideNav: React.FC<SideNavProps> = () => {
+const SideNav: React.FC<{
+  loggedIn: boolean;
+  setLoggedIn: (loggedIn: boolean) => void;
+}> = ({ loggedIn, setLoggedIn }) => {
+  const navigate = useNavigate();
   return (
     <div className="side_nav-container">
       <div className="logo-container">
@@ -38,10 +41,26 @@ const SideNav: React.FC<SideNavProps> = () => {
           <FaQuestionCircle className="side_nav-icon" />
           Help
         </NavLink>
-        <NavLink to="/login" className="side_nav-item">
-          <FaSignInAlt className="side_nav-icon" />
-          Login
-        </NavLink>
+        {!loggedIn && (
+          <NavLink to="/login" className="side_nav-item">
+            <BiLogIn className="side_nav-icon" />
+            Login
+          </NavLink>
+        )}
+
+        {loggedIn && (
+          <LogoutButton
+            className="side_nav-item"
+            onClick={() => {
+              localStorage.removeItem("token");
+              setLoggedIn(false);
+              navigate("/login");
+            }}
+          >
+            <BiLogOut className="side_nav-icon" />
+            Logout
+          </LogoutButton>
+        )}
       </nav>
       <div className="side_nav-footer">
         <NavLink to="/about" className="side_nav-footer-link">

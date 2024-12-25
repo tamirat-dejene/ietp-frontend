@@ -8,7 +8,7 @@ const table_data: TableDataModel[] = [
         speed: '120 km/h',
         penalty_count: 3,
         city: 'Addis Ababa',
-        damage: 'Minor'
+        report_date: new Date().toDateString()
     },
     {
         driver_name: 'Usman',
@@ -17,7 +17,7 @@ const table_data: TableDataModel[] = [
         speed: '110 km/h',
         penalty_count: 2,
         city: 'Addis Ababa',
-        damage: 'Major'
+        report_date: new Date().toDateString()
     },
     {
         driver_name: 'Ali',
@@ -26,7 +26,7 @@ const table_data: TableDataModel[] = [
         speed: '95 km/h',
         penalty_count: 4,
         city: 'Addis Ababa',
-        damage: 'None'
+        report_date: new Date().toDateString()
     },
     {
         driver_name: 'Abdi',
@@ -35,7 +35,7 @@ const table_data: TableDataModel[] = [
         speed: '120 km/h',
         penalty_count: 8,
         city: 'Addis Ababa',
-        damage: 'Minor'
+        report_date: new Date().toDateString()
     },
     // {
     //     driver_name: 'Abcd',
@@ -44,7 +44,7 @@ const table_data: TableDataModel[] = [
     //     speed: '120 km/h',
     //     penalty_count: 1,
     //     city: 'Addis Ababa',
-    //     damage: 'None'
+    //     report_date: new Date().toDateString()
     // }
 ]
 
