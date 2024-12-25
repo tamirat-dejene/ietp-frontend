@@ -10,20 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@emotion/react": "^11.13.3",
-    "@emotion/styled": "^11.13.0",
-    "@mui/material": "^6.3.0",
-    "dotenv": "^16.4.7",
-=======
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/material": "^6.3.0",
->>>>>>> f2dcfe63c9f967a28f0ed82e9abfff27a7a1d2e4
+    "@types/dotenv": "^6.1.1",
+    "dotenv": "^16.4.7",
     "ietp-frontend": "file:",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
+    "react-loading-skeleton": "^3.5.0",
     "react-router-dom": "^7.1.0",
     "styled-system": "^5.1.5"
   },

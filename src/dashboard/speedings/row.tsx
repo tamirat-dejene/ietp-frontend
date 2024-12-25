@@ -1,7 +1,7 @@
 
-import { TableDataModel } from '../../lib/defn'
+import { ReportDataModel } from '../../lib/defn'
 
-export const TableRow = ({ data }: { data: TableDataModel }) => {
+export const TableRow = ({ data }: { data: ReportDataModel }) => {
     return (<tr>
         <td>{data.driver_name}</td>
         <td>{data.driver_licence}</td>
@@ -9,6 +9,12 @@ export const TableRow = ({ data }: { data: TableDataModel }) => {
         <td>{data.speed}</td>
         <td>{data.penalty_count}</td>
         <td>{data.city}</td>
-        <td>{data.report_date}</td>
+        <td>{
+            new Date(data.report_date).toLocaleDateString('en-GB', {
+                day: 'numeric',
+                month: 'short',
+                year: 'numeric',
+            })
+        }</td>
     </tr>)
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ButtonContainer, FormContainer, FormLabel, FormRow, Input, InputData, Label, StyledButton, StyledLink, Underline } from "../ui/form_components";
 import { Form, useNavigate, useOutletContext } from "react-router-dom";
-import { TableDataModel } from "../lib/defn";
+import { ReportDataModel } from "../lib/defn";
 import { Snackbar, Alert } from '@mui/material'
 
 
@@ -30,7 +30,7 @@ const RecordPage = () => {
     setIsProcessing(true);
     e.preventDefault();
 
-    const record: TableDataModel = {
+    const record: ReportDataModel = {
       driver_name: name,
       driver_licence: licenceNumber,
       car_plate: plateNumber,

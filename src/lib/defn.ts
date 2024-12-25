@@ -8,7 +8,7 @@ type StatCardProps = {
   duration: string;
 };
 
-type TableDataModel = {
+type ReportDataModel = {
   driver_name: string;
   driver_licence: string;
   car_plate: string;
@@ -30,4 +30,6 @@ type User = {
   password: string;
 };
 
-export type { StatCardProps, TableDataModel, WebSocketData, User };
+type ReportSortOption = "penalty" | "city" | "date" | "speed";
+
+export type { StatCardProps, ReportDataModel, WebSocketData, User, ReportSortOption };

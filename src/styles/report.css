@@ -82,6 +82,7 @@
     padding: 15px 0px;
 }
 
+
 .report_table th:first-child {
     border-radius: 14px 0px 0px 0px;
 }
@@ -103,6 +104,11 @@
     border-bottom: 1px solid #F0F0F0;
 }
 
+.report_table tbody tr td,
+.report_table tbody tr {
+    border-radius: 0;
+}
+
 .report_table td:first-child {
     border-radius: 0px 0px 0px 14px;
 }
@@ -120,6 +126,7 @@
     background-color: #FFFFFF;
     border-radius: 0px 0px 14px 14px;
     padding: 30px 0px 0px 0px;
+    padding-bottom: 20px;
 }
 
 .report_table-pagination p {
@@ -148,14 +155,28 @@
 }
 
 .report_table-pagination-buttons button.active {
-    background-color: #5932EA;
-    border: 1px solid #5932EA;
+    background-color: #fcd176;
+    border: 1px solid #f1d393;
     color: #FFFFFF;
 }
 
 .report_table-pagination-buttons button:hover {
-    background-color: #5932EA;
-    border: 1px solid #5932EA;
+    background-color: #f3b851;
+    border: 1px solid #f3b851;
     cursor: pointer;
     color: #FFFFFF;
+}
+
+.report_table-pagination button:disabled {
+    background-color: #F5F5F5;
+    border: 1px solid #EEEEEE;
+    color: #B5B7C0;
+    cursor: not-allowed;
+}
+
+.report_table-pagination button:disabled:hover {
+    background-color: #F5F5F5;
+    border: 1px solid #EEEEEE;
+    color: #B5B7C0;
+    cursor: not-allowed;
 }

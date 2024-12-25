@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 import styles from "../styles/traffic/traffic.module.css";
 
 type TrafficData = {
