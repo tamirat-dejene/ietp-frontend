@@ -9,7 +9,8 @@ import MainDashboard from "./dashboard/speedings/page.tsx";
 import RecordPage from "./record/record.tsx";
 import Login from "./login/login.tsx";
 import Traffic from "./traffic/traffic.tsx";
-import Details from "./traffic/details.tsx";
+import Details from "./traffic/Details.tsx";
+import About from "./About/About";
 
 const router = createBrowserRouter([
   {
@@ -21,8 +22,8 @@ const router = createBrowserRouter([
       { path: "/record", element: <RecordPage /> },
       { path: "/traffic", element: <Traffic /> },
       { path: "/login", element: <Login /> },
-      { path: "/about", element: <div>About</div> },
-      { path: "/help", element: <div>Help</div> },
+      { path: "/about", element: <About /> },
+      { path: "/help", element: <div>Help </div> },
       { path: "/details/:id", element: <Details /> },
     ],
   },
