@@ -65,8 +65,8 @@
 
 
 .stat_card-percentage.positive {
-    color: #00AC4F;
+    color: #D0004B;
 }
 .stat_card-percentage.negative {
-    color: #D0004B;
+    color: #00AC4F;
 }

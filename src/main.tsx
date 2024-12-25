@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+// import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/index.css'
 import App from './App.tsx'
@@ -9,15 +9,28 @@ import MainDashboard from './dashboard/speedings/page.tsx';
 import RecordPage from './record/record.tsx';
 import Login from './login/login.tsx';
 import Traffic from './traffic/traffic.tsx';
+import ProtectedRoute from './protect.tsx';
 
 const router = createBrowserRouter([{
   path: '/',
   element: <App />,
   errorElement: <NotFound />,
   children: [
-    { path: '/dashboard', index: true, element: <MainDashboard /> },
-    { path: '/record', element: <RecordPage /> },
-    { path: '/traffic', element: <Traffic /> },
+    {
+      path: '/dashboard', index: true, element: <ProtectedRoute>
+        <MainDashboard />
+      </ProtectedRoute>
+    },
+    {
+      path: '/record', element: <ProtectedRoute>
+        <RecordPage />
+      </ProtectedRoute>
+    },
+    {
+      path: '/traffic', element: <ProtectedRoute>
+        <Traffic />
+      </ProtectedRoute>
+    },
     { path: '/login', element: <Login /> },
     { path: '/about', element: <div>About</div> },
     { path: '/help', element: <div>Help</div> },
@@ -25,7 +38,7 @@ const router = createBrowserRouter([{
 }]);
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>,
+  // <StrictMode>
+  <RouterProvider router={router} />
+  // </StrictMode>,
 )
