@@ -1,0 +1,145 @@
+/* Main container for the page */
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Title styling */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  font-family: "Arial", sans-serif;
+}
+
+/* Grid container for cards */
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  gap: 24px;
+  padding: 20px;
+  justify-content: center;
+}
+
+/* Card styling */
+.card {
+  background-color: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
+  padding: 16px; /* Padding for spacing inside the card */
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* Card image styling */
+.cardImage {
+  width: 100%;
+  height: 250px; /* Consistent height */
+  object-fit: cover; /* Ensures images fit without distortion */
+  border-radius: 8px; /* Slightly rounded corners */
+}
+
+/* Card title styling */
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 12px;
+  color: #555;
+  font-family: "Arial", sans-serif;
+  text-align: center;
+}
+
+/* Modal overlay */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Darker backdrop */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modalContent {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 20px 30px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Close button */
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #555;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: #000;
+}
+
+/* Modal title */
+.modalTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+/* Traffic info */
+.trafficInfo {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #666;
+}
+
+/* Traffic grid */
+.trafficGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.trafficItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.trafficItem:last-child {
+  border-bottom: none;
+}
