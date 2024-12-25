@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import styles from "../styles/traffic/traffic.module.css";
 
@@ -5,7 +6,7 @@ type TrafficData = {
   morning: number;
   afternoon: number;
   evening: number;
-  dailyAverage?: number; // This will be calculated dynamically
+  dailyAverage?: number;
 };
 
 type Area = {
@@ -17,25 +18,24 @@ type Area = {
 
 const Traffic = () => {
   const [selectedArea, setSelectedArea] = useState<Area | null>(null);
+  const navigate = useNavigate();
 
   const areas: Area[] = [
     { id: 1, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 2, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 3, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 4, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 5, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 6, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 7, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 8, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 9, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 10, name: "Bole", image: "/src/assets/images/bole.jpg" },
+    { id: 2, name: "Piassa", image: "/src/assets/images/piassa.jpg" },
+    { id: 3, name: "Kazanchis", image: "/src/assets/images/kazanchis.jpg" },
+    { id: 4, name: "Megenagna", image: "/src/assets/images/megenagna.jpg" },
+    {
+      id: 5,
+      name: "Addis Ketema",
+      image: "/src/assets/images/addis_ketema.jpg",
+    },
+    { id: 6, name: "Merkato", image: "/src/assets/images/merkato.jpg" },
+    { id: 7, name: "Sar Bet", image: "/src/assets/images/sar_bet.jpg" },
+    { id: 8, name: "Gotera", image: "/src/assets/images/gotera.jpg" },
+    { id: 9, name: "Arat Kilo", image: "/src/assets/images/arat_kilo.jpg" },
+    { id: 10, name: "CMC", image: "/src/assets/images/cmc.jpg" },
   ];
-
-  const mockTrafficData: TrafficData = {
-    morning: 200,
-    afternoon: 400,
-    evening: 700,
-  };
 
   const calculateDailyAverage = (trafficData: TrafficData) => {
     return (
@@ -44,6 +44,12 @@ const Traffic = () => {
   };
 
   const handleCardClick = (area: Area) => {
+    const mockTrafficData: TrafficData = {
+      morning: Math.floor(Math.random() * 500 + 100),
+      afternoon: Math.floor(Math.random() * 500 + 100),
+      evening: Math.floor(Math.random() * 500 + 100),
+    };
+
     const trafficDataWithAverage = {
       ...mockTrafficData,
       dailyAverage: calculateDailyAverage(mockTrafficData),
@@ -54,6 +60,12 @@ const Traffic = () => {
 
   const handleCloseModal = () => {
     setSelectedArea(null);
+  };
+
+  const navigateToDetails = () => {
+    if (selectedArea) {
+      navigate(`/details/${selectedArea.id}`);
+    }
   };
 
   return (
@@ -117,6 +129,12 @@ const Traffic = () => {
                 </strong>
               </div>
             </div>
+            <button
+              className={styles.detailsButton}
+              onClick={navigateToDetails}
+            >
+              View Details
+            </button>
           </div>
         </div>
       )}

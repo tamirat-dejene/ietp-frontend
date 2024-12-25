@@ -1,10 +1,27 @@
+/* Navigation link */
+.navigation {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.heatmapLink {
+  font-size: 1.2rem;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.heatmapLink:hover {
+  text-decoration: underline;
+}
+
 /* Main container for the page */
 .container {
   padding: 20px;
   text-align: center;
 }
 
-/* Title styling */
 .title {
   font-size: 2.5rem;
   font-weight: bold;
@@ -16,13 +33,12 @@
 /* Grid container for cards */
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding: 20px;
   justify-content: center;
 }
 
-/* Card styling */
 .card {
   background-color: #f9f9f9;
   border-radius: 12px;
@@ -30,22 +46,20 @@
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s;
-  padding: 16px; /* Padding for spacing inside the card */
+  padding: 16px;
 }
 
 .card:hover {
   transform: scale(1.05);
 }
 
-/* Card image styling */
 .cardImage {
   width: 100%;
-  height: 250px; /* Consistent height */
-  object-fit: cover; /* Ensures images fit without distortion */
-  border-radius: 8px; /* Slightly rounded corners */
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
-/* Card title styling */
 .cardTitle {
   font-size: 1.5rem;
   font-weight: bold;
@@ -55,78 +69,75 @@
   text-align: center;
 }
 
-/* Modal overlay */
+/* Modal styles */
 .modalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Darker backdrop */
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background */
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-/* Modal content */
 .modalContent {
-  background-color: #ffffff;
+  background-color: white;
   border-radius: 16px;
-  padding: 20px 30px;
+  padding: 30px;
   width: 90%;
   max-width: 500px;
-  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Modern shadow */
   position: relative;
-  animation: fadeIn 0.3s ease;
+  animation: fadeIn 0.3s ease-in-out;
 }
 
 @keyframes fadeIn {
   from {
+    transform: scale(0.9);
     opacity: 0;
-    transform: translateY(-20px);
   }
   to {
+    transform: scale(1);
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
-/* Close button */
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   font-size: 24px;
   color: #555;
-  border: none;
   background: none;
+  border: none;
   cursor: pointer;
 }
 
 .closeButton:hover {
-  color: #000;
+  color: black;
 }
 
-/* Modal title */
-.modalTitle {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 10px;
-  color: #333;
-  text-align: center;
-}
-
-/* Traffic info */
-.trafficInfo {
+.detailsButton {
+  margin-top: 20px;
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   font-size: 1rem;
-  margin-bottom: 15px;
-  text-align: center;
-  color: #666;
 }
 
-/* Traffic grid */
+.detailsButton:hover {
+  background-color: #0056b3;
+}
+
+/* Traffic grid inside the modal */
 .trafficGrid {
+  margin-top: 20px;
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
@@ -135,11 +146,23 @@
 .trafficItem {
   display: flex;
   justify-content: space-between;
-  font-size: 1.1rem;
+  font-size: 1rem;
   padding: 10px;
   border-bottom: 1px solid #eee;
 }
 
 .trafficItem:last-child {
   border-bottom: none;
+}
+
+/* Snackbar styles */
+.snackbar {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(230, 240, 250, 0.9);
+  color: black;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
