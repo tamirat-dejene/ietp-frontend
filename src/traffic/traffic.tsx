@@ -22,7 +22,7 @@ const Traffic = () => {
 
   const areas: Area[] = [
     { id: 1, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 2, name: "Piassa", image: "/src/assets/images/piassa.jpg" },
+    { id: 2, name: "Piassa", image: "/src/assets/images/piyassa.jpg" },
     { id: 3, name: "Kazanchis", image: "/src/assets/images/kazanchis.jpg" },
     { id: 4, name: "Megenagna", image: "/src/assets/images/megenagna.jpg" },
     {
@@ -69,35 +69,35 @@ const Traffic = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.title}>
+    <div className={styles.trafficContainer}>
+      <h1 className={styles.trafficTitle}>
         Traffic Analysis in Different Parts of Addis Ababa
       </h1>
-      <div className={styles.gridContainer}>
+      <div className={styles.trafficGridContainer}>
         {areas.map((area) => (
           <div
             key={area.id}
-            className={styles.card}
+            className={styles.trafficCard}
             onClick={() => handleCardClick(area)}
           >
             <img
               src={area.image}
               alt={area.name}
-              className={styles.cardImage}
+              className={styles.trafficCardImage}
             />
-            <h3 className={styles.cardTitle}>{area.name}</h3>
+            <h3 className={styles.trafficCardTitle}>{area.name}</h3>
           </div>
         ))}
       </div>
 
       {selectedArea && (
-        <div className={styles.modalOverlay} onClick={handleCloseModal}>
+        <div className={styles.trafficModalOverlay} onClick={handleCloseModal}>
           <div
-            className={styles.modalContent}
+            className={styles.trafficModalContent}
             onClick={(e) => e.stopPropagation()}
           >
             <button
-              className={styles.closeButton}
+              className={styles.trafficCloseButton}
               onClick={handleCloseModal}
               aria-label="Close"
             >
@@ -130,7 +130,7 @@ const Traffic = () => {
               </div>
             </div>
             <button
-              className={styles.detailsButton}
+              className={styles.trafficDetailsButton}
               onClick={navigateToDetails}
             >
               View Details

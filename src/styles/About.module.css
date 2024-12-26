@@ -1,0 +1,124 @@
+/* Main container */
+.aboutPage_container {
+  padding: 30px;
+  font-family: "Arial", sans-serif;
+  overflow: auto;
+}
+
+/* About section */
+.aboutPage_aboutSection {
+  margin-bottom: 40px;
+  text-align: left; /* Align text to the left */
+}
+
+.aboutPage_title {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.aboutPage_description {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+/* Team section */
+.aboutPage_teamSection {
+  text-align: center;
+}
+
+.aboutPage_subtitle {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 30px;
+}
+
+/* Team grid */
+.aboutPage_teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px; /* Padding between cards */
+}
+
+/* Team member card */
+.aboutPage_card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s, filter 0.3s ease-in-out;
+}
+
+.aboutPage_card:hover {
+  transform: scale(1.05);
+}
+
+/* Subtle blur effect */
+.aboutPage_teamGrid:hover .aboutPage_card {
+  filter: blur(2px); /* Reduced blur effect */
+}
+
+.aboutPage_teamGrid:hover .aboutPage_card:hover {
+  filter: none; /* Keep hovered card clear */
+}
+
+/* Image styling */
+.aboutPage_aboutUsImage {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%; /* Makes the image circular */
+  object-fit: cover; /* Ensures the image fits properly inside the circle */
+  margin-bottom: 15px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.aboutPage_card:hover .aboutPage_aboutUsImage {
+  transform: scale(1.1); /* Slightly enlarges the hovered image */
+}
+
+.aboutPage_name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.aboutPage_department {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .aboutPage_teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px; /* Adjusted padding for smaller screens */
+  }
+
+  .aboutPage_title {
+    font-size: 2rem;
+  }
+
+  .aboutPage_subtitle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .aboutPage_teamGrid {
+    grid-template-columns: 1fr;
+    gap: 20px; /* Adjusted padding for smaller screens */
+  }
+
+  .aboutPage_title {
+    font-size: 1.8rem;
+  }
+
+  .aboutPage_subtitle {
+    font-size: 1.2rem;
+  }
+}

@@ -11,40 +11,57 @@ import Login from "./login/login.tsx";
 import Traffic from "./traffic/traffic.tsx";
 import ProtectedRoute from "./protect.tsx";
 import Details from "./traffic/Details.tsx";
+import About from "./About/About.tsx";
+import HelpPage from "./help/help.tsx";
 
-const router = createBrowserRouter([{
-  path: '/',
-  element: <App />,
-  errorElement: <NotFound />,
-  children: [
-    {
-      path: '/dashboard', index: true, element: <ProtectedRoute>
-        <MainDashboard />
-      </ProtectedRoute>
-    },
-    {
-      path: '/record', element: <ProtectedRoute>
-        <RecordPage />
-      </ProtectedRoute>
-    },
-    {
-      path: '/traffic', element: <ProtectedRoute>
-        <Traffic />
-      </ProtectedRoute>
-    },
-    {
-      path: "/details/:id", element: <ProtectedRoute>
-          <Details />
-        </ProtectedRoute>
-    },
-    { path: '/login', element: <Login /> },
-    { path: '/about', element: <div>About</div> },
-    { path: '/help', element: <div>Help</div> },
-  ],
-}]);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <NotFound />,
+    children: [
+      {
+        path: "/dashboard",
+        index: true,
+        element: (
+          <ProtectedRoute>
+            <MainDashboard />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/record",
+        element: (
+          <ProtectedRoute>
+            <RecordPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/traffic",
+        element: (
+          <ProtectedRoute>
+            <Traffic />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "/details/:id",
+        element: (
+          <ProtectedRoute>
+            <Details />
+          </ProtectedRoute>
+        ),
+      },
+      { path: "/login", element: <Login /> },
+      { path: "/about", element: <About /> },
+      { path: "/help", element: <HelpPage /> },
+    ],
+  },
+]);
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   // <StrictMode>
   <RouterProvider router={router} />
   // </StrictMode>,
-)
+);

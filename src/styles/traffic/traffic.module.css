@@ -1,68 +1,52 @@
-/* Navigation link */
-.navigation {
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.heatmapLink {
-  font-size: 1.2rem;
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.heatmapLink:hover {
-  text-decoration: underline;
-}
-
-/* Main container for the page */
-.container {
+/* Main container for the Traffic page */
+.trafficContainer {
   padding: 20px;
-  text-align: center;
+  text-align: left; /* Align the main title to the left */
+  overflow: auto;
 }
 
-.title {
-  font-size: 1.8rem;
+.trafficTitle {
+  font-size: 1.6rem; /*  font size */
   font-weight: bold;
   margin-bottom: 20px;
   color: #333;
   font-family: "Arial", sans-serif;
+  text-align: left; /* Ensures main title alignment remains left */
 }
 
 /* Grid container for cards */
-.gridContainer {
+.trafficGridContainer {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  padding: 20px;
+  padding: 15px 0;
   justify-content: center;
 }
 
-.card {
+.trafficCard {
   background-color: #f9f9f9;
   border-radius: 12px;
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.4s;
   padding: 16px;
 }
 
-.card:hover {
+.trafficCard:hover {
   transform: scale(1.05);
 }
 
-.cardImage {
+.trafficCardImage {
   width: 100%;
   height: 250px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.cardTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
+.trafficCardTitle {
+  font-size: 1.2rem; /* Reduced font size */
+  font-weight: 600; /* Slightly lighter weight for better balance */
   margin-top: 12px;
   color: #555;
   font-family: "Arial", sans-serif;
@@ -70,26 +54,26 @@
 }
 
 /* Modal styles */
-.modalOverlay {
+.trafficModalOverlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Darker background */
+  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-.modalContent {
+.trafficModalContent {
   background-color: white;
   border-radius: 16px;
   padding: 30px;
   width: 90%;
   max-width: 500px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5); /* Modern shadow */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
   position: relative;
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -105,7 +89,7 @@
   }
 }
 
-.closeButton {
+.trafficCloseButton {
   position: absolute;
   top: 15px;
   right: 15px;
@@ -116,12 +100,28 @@
   cursor: pointer;
 }
 
-.closeButton:hover {
+.trafficCloseButton:hover {
   color: black;
 }
 
-.detailsButton {
+.modalTitle {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+  text-align: center; /* Modal titles are centered */
+}
+
+.trafficInfo {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #666;
+  text-align: center; /* Center align traffic info */
+}
+
+.trafficDetailsButton {
   margin-top: 20px;
+  margin-left: 10px;
   padding: 12px 25px;
   background-color: #007bff;
   color: white;
@@ -131,7 +131,7 @@
   font-size: 1rem;
 }
 
-.detailsButton:hover {
+.trafficDetailsButton:hover {
   background-color: #0056b3;
 }
 
@@ -141,6 +141,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
+  text-align: center; /* Content inside grid is center aligned */
 }
 
 .trafficItem {
@@ -153,16 +154,4 @@
 
 .trafficItem:last-child {
   border-bottom: none;
-}
-
-/* Snackbar styles */
-.snackbar {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: rgba(230, 240, 250, 0.9);
-  color: black;
-  padding: 10px 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }

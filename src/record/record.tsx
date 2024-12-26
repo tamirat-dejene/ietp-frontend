@@ -18,7 +18,7 @@ const RecordPage = () => {
   const [processing, setIsProcessing] = useState(false);
   const navigate = useNavigate();
   const { loggedIn } = useOutletContext<{ loggedIn: boolean }>()
-  
+
   const buildSnackbar = (message: string, severity: 'success' | 'error' | 'info' | 'warning') => {
     setSnackbarMessage(message);
     setSeverity(severity);
@@ -68,12 +68,14 @@ const RecordPage = () => {
   }
   return (
     <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        width: '100vw',
-        backgroundColor: 'inherit'}}>
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      width: '100vw',
+      backgroundColor: 'inherit',
+      overflow: 'scroll',
+    }}>
       <FormContainer>
         <FormLabel>Record Page</FormLabel>
         <Form onSubmit={handleSubmit}>

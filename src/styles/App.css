@@ -6,3 +6,8 @@
     width: 100%;
     background-color: #FAFBFF;
 }
+
+/* apply scrollbar width global */
+::-webkit-scrollbar {
+    width: 10px;
+}

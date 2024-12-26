@@ -254,33 +254,35 @@ const Details = () => {
       <h1 className={styles.title}>
         Detailed Traffic Analysis for {area.name}
       </h1>
-      <table className={styles.table}>
-        <thead>
-          <tr>
-            <th>Location</th>
-            <th>Morning</th>
-            <th>Afternoon</th>
-            <th>Evening</th>
-            <th>Daily Average</th>
-          </tr>
-        </thead>
-        <tbody>
-          {area.locations.map((location) => (
-            <tr key={location.name}>
-              <td>{location.name}</td>
-              <td>{location.morning}</td>
-              <td>{location.afternoon}</td>
-              <td>{location.evening}</td>
-              <td>
-                {(
-                  (location.morning + location.afternoon + location.evening) /
-                  3
-                ).toFixed(2)}
-              </td>
+      <div className={styles.tableContainer}>
+        <table className={styles.detailsTable}>
+          <thead>
+            <tr>
+              <th align="left">Location</th>
+              <th>Morning</th>
+              <th>Afternoon</th>
+              <th>Evening</th>
+              <th align="right">Daily Average</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {area.locations.map((location) => (
+              <tr key={location.name}>
+                <td align="left">{location.name}</td>
+                <td>{location.morning}</td>
+                <td>{location.afternoon}</td>
+                <td>{location.evening}</td>
+                <td align="right">
+                  {(
+                    (location.morning + location.afternoon + location.evening) /
+                    3
+                  ).toFixed(2)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 };

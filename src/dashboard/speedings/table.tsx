@@ -17,7 +17,7 @@ const ReportTable = ({ searchQuery, setSearchQuery }: { searchQuery: string; set
     const [sortOption, setSortOption] = useState<ReportSortOption>('speed');
     const [activePage, setActivePage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
-    const [isFetching, setIsFetching] = useState(false);
+    const [isFetching, setIsFetching] = useState(true);
 
     useEffect(() => {
         const debouncer = setTimeout(() => {

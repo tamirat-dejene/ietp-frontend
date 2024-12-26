@@ -8,56 +8,91 @@
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   font-family: "Arial", sans-serif;
+  overflow: auto;
 }
 
 /* Page title */
 .title {
-  font-size: 1.8rem; /* Increased font size */
+  font-size: 2.4rem;
   margin-bottom: 40px;
   color: #2c3e50;
   font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Table container */
 .tableContainer {
   display: flex;
-  justify-content: center; /* Centers the table horizontally */
-  overflow-x: auto; /* Ensures table is scrollable on smaller screens */
+  justify-content: center;
+  overflow-x: auto;
 }
 
 /* Table styling */
-.table {
-  width: 100%; /* Adjust table width */
-  max-width: 800px; /* Limits the maximum width */
+.detailsTable {
+  width: 90%;
+  max-width: 800px;
   border-collapse: collapse;
-  margin: 0 auto; /* Centers table in its container */
-  text-align: left;
+  margin: 0 auto;
+  text-align: center;
   background-color: #ffffff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
-  border-radius: 8px; /* Rounded corners */
-  overflow: hidden; /* Ensures rounded corners for the table */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* Table headers */
-th {
-  color: #333;
-  font-weight: 600;
-  padding: 10px;
+.detailsTable th {
+  background-color: #007bff;
+  color: white;
+  font-weight: bold;
+  padding: 20px;
+  font-size: 1rem;
+  text-transform: uppercase;
   border: none;
 }
 
 /* Table cells */
-td {
-  padding: 10px;
-  border: none;
-  border-top: 1px solid #f2f2f2; /* Adds a border between rows */
+.detailsTable td {
+  padding: 15px;
+  font-size: 1rem;
+  color: #555;
+  border-bottom: 1px solid #ddd;
 }
 
+/* Alternating row colors */
+.detailsTable tr:nth-child(even) td {
+  background-color: #f9fcff; /* Very light blue */
+}
 
-/* Responsive design for larger screens */
+.detailsTable tr:nth-child(odd) td {
+  background-color: white;
+}
 
+/* Hover effect */
+.detailsTable tr:hover td {
+  background-color: #f2f2f2; /* Subtle light gray */
+}
 
-/* Responsive design for smaller screens */
+/* View Details button */
+.detailsButton {
+  margin: 30px auto; /* Center the button horizontally */
+  padding: 12px 25px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: block; /* Ensures button takes up its own line and is centered */
+  text-align: center; /* Center the text */
+}
+
+.detailsButton:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive design */
 @media (max-width: 768px) {
   .detailsContainer {
     padding: 15px;
@@ -67,13 +102,13 @@ td {
     font-size: 2rem;
   }
 
-  th,
-  td {
+  .detailsTable th,
+  .detailsTable td {
     font-size: 0.9rem;
     padding: 10px;
   }
 
-  .table {
+  .detailsTable {
     width: 100%;
   }
 }

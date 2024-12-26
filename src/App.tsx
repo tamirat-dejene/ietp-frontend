@@ -12,7 +12,7 @@ function App() {
   }, [loggedIn, navigate])
   return (
     <main className='app_container'>
-      <SideNav loggedIn={loggedIn} setLoggedIn={setLoggedIn}/>
+      <SideNav loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <Outlet context={{ loggedIn, setLoggedIn }} />
       <WarningCard />
     </main>
