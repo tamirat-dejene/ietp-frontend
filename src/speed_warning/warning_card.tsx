@@ -13,7 +13,7 @@ const WarningCard = () => {
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
-        websocket.current = new WebSocket("ws://localhost:1337/arduino/upload");
+        websocket.current = new WebSocket(`ws://${process.env.API_URL}/arduino/upload`);
         const ws = websocket.current;
         ws.onopen = () => console.log('Connected to WebSocket');
         ws.onmessage = (event) => {

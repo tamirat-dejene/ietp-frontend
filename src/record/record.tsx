@@ -3,6 +3,7 @@ import { ButtonContainer, FormContainer, FormLabel, FormRow, Input, InputData, L
 import { Form, useNavigate, useOutletContext } from "react-router-dom";
 import { ReportDataModel } from "../lib/defn";
 import { Snackbar, Alert } from '@mui/material'
+import { recordReport } from "../lib/actions";
 
 
 const RecordPage = () => {
@@ -30,25 +31,9 @@ const RecordPage = () => {
     setIsProcessing(true);
     e.preventDefault();
 
-    const record: ReportDataModel = {
-      driver_name: name,
-      driver_licence: licenceNumber,
-      car_plate: plateNumber,
-      speed: speed,
-      report_date: date,
-      city: address,
-    };
-    console.log('Record:', record);
-    fetch(`${process.env.API_URL}/reports`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(record),
-    }).then(async (response) => {
-      console.log('Response:', response.status);
-      const result = await response.json();
-      console.log('Result:', result);
-
-      if (response.status === 200) {
+    const record: ReportDataModel = { driver_name: name, driver_licence: licenceNumber, car_plate: plateNumber, speed: speed, report_date: date, city: address, };
+    recordReport(record).then((response) => {
+      if (response === 200) {
         buildSnackbar('Record saved successfully', 'success');
       } else {
         buildSnackbar('An error occurred', 'error');
@@ -63,9 +48,8 @@ const RecordPage = () => {
   };
 
 
-  if (!loggedIn) {
-    return null
-  }
+  if (!loggedIn) return null
+
   return (
     <div style={{
       display: 'flex',

@@ -4,6 +4,7 @@ import { Snackbar, Alert } from '@mui/material'
 import { useNavigate, useOutletContext } from 'react-router-dom';
 import { ButtonContainer, Form, FormContainer, FormLabel, FormLink, FormRow, IconButton, Input, InputData, Label, OuterFormContainer, StyledButton, Underline } from '../ui/form_components';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { login } from '../lib/actions';
 
 
 function Login() {
@@ -32,22 +33,14 @@ function Login() {
       return;
     }
 
-    fetch(`${process.env.API_URL}/auth/login`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password }),
-    }).then(async (response) => {
-      const result = await response.json();
-      if (response.status == 401) {
-        buildSnackbar(result.message, 'error');
-        setIsLoading(false);
-        return;
+    login(email, password).then((response) => {
+      if (response) {
+        buildSnackbar('Login successful!', 'success');
+        setLoggedIn(true);
+        navigate('/dashboard', { replace: true });
+      } else {
+        buildSnackbar('Invalid username/password.', 'error');
       }
-      localStorage.setItem('token', JSON.stringify(response.headers.get('Authorization')));
-
-      buildSnackbar('Login successful!', 'success');
-      setLoggedIn(true);
-      navigate('/dashboard', { replace: true });
     }).catch(() => {
       buildSnackbar('An error occurred. Please try again.', 'error');
     }).finally(() => {
@@ -55,9 +48,6 @@ function Login() {
     });
   };
 
-  const closeSnackbar = () => {
-    setSnackbarOpen(false);
-  };
   return (
     <OuterFormContainer>
       <FormContainer max_width="400px">
@@ -101,12 +91,12 @@ function Login() {
 
       <Snackbar
         open={snackbarOpen}
-        onClose={closeSnackbar}
+        onClose={() => setSnackbarOpen(false)}
         autoHideDuration={3500}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
         <Alert
-          onClose={closeSnackbar}
+          onClose={() => setSnackbarOpen(false)}
           severity={severity}
           sx={{ width: 'max-content', backgroundColor: 'rgb(230,240,250)', color: 'black' }}
         >
