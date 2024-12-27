@@ -1,61 +1,65 @@
 import styles from "../styles/About.module.css";
+import { profile, abigail, tewehbo, tamirat } from "../assets/index";
+
+
+
 
 const About = () => {
   const teamMembers = [
     {
       name: "Noah Seifu",
       department: "Software Engineering",
-      image: "/src/assets/images/profile.png",
+      image: profile,
     },
     {
       name: "Tewuhbo Mihret",
       department: "Software Engineering",
-      image: "/src/assets/images/tewehbo.jpg",
+      image: tewehbo,
     },
     {
       name: "Habtamu Firdiywok",
       department: "Electrical and Computer Engineering",
-      image: "/src/assets/images/profile.png",
+      image: profile,
     },
     {
       name: "Yididiya Behailu",
       department: "Electrical and Computer Engineering",
-      image: "/src/assets/images/profile.png",
+      image: profile,
     },
     {
       name: "Yonatan Kefyalew",
       department: "Electromechanical Engineering",
-      image: "/src/assets/images/profile.png",
+      image: profile,
     },
     {
       name: "Eyoel Eshetu",
       department: "Civil Engineering",
-      image: "/src/assets/images/profile.png",
+      image: profile,
     },
     {
       name: "Tamirat Dejene",
       department: "Software Engineering",
-      image: "/src/assets/images/t-dejene-pp.jpg",
+      image: tamirat,
     },
     {
       name: "Arsema Elias",
       department: "Electrical and Computer Engineering",
-      image: "/src/assets/images/profile.png",
+      image: profile,
     },
     {
       name: "Abigail Fuad",
       department: "Software Engineering",
-      image: "/src/assets/images/abigail.jpg",
+      image: abigail,
     },
     {
       name: "Bethlehem Ketema",
       department: "Civil Engineering",
-      image: "/src/assets/images/profile.png",
+      image: profile,
     },
     {
       name: "Teklu Anbese",
       department: "Electromechanical Engineering",
-      image: "/src/assets/images/profile.png",
+      image: profile,
     },
   ];
 
@@ -80,6 +84,7 @@ const About = () => {
                 src={member.image}
                 alt={member.name}
                 className={styles.aboutPage_aboutUsImage}
+                loading="lazy"
               />
               <h3 className={styles.aboutPage_name}>{member.name}</h3>
               <p className={styles.aboutPage_department}>{member.department}</p>

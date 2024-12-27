@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import styles from "../styles/traffic/traffic.module.css";
+import { addis_ketema,arat_kilo, bole, cmc, gotera, kazanchis, megenagna, merkato, piyassa, sar_bet } from "../assets/index";
 
 type TrafficData = {
   morning: number;
@@ -21,20 +22,16 @@ const Traffic = () => {
   const navigate = useNavigate();
 
   const areas: Area[] = [
-    { id: 1, name: "Bole", image: "/src/assets/images/bole.jpg" },
-    { id: 2, name: "Piassa", image: "/src/assets/images/piyassa.jpg" },
-    { id: 3, name: "Kazanchis", image: "/src/assets/images/kazanchis.jpg" },
-    { id: 4, name: "Megenagna", image: "/src/assets/images/megenagna.jpg" },
-    {
-      id: 5,
-      name: "Addis Ketema",
-      image: "/src/assets/images/addis_ketema.jpg",
-    },
-    { id: 6, name: "Merkato", image: "/src/assets/images/merkato.jpg" },
-    { id: 7, name: "Sar Bet", image: "/src/assets/images/sar_bet.jpg" },
-    { id: 8, name: "Gotera", image: "/src/assets/images/gotera.jpg" },
-    { id: 9, name: "Arat Kilo", image: "/src/assets/images/arat_kilo.jpg" },
-    { id: 10, name: "CMC", image: "/src/assets/images/cmc.jpg" },
+    { id: 1, name: "Bole", image: bole },
+    { id: 2, name: "Piassa", image: piyassa },
+    { id: 3, name: "Kazanchis", image: kazanchis },
+    { id: 4, name: "Megenagna", image: megenagna },
+    { id: 5, name: "Addis Ketema", image: addis_ketema, },
+    { id: 6, name: "Merkato", image: merkato },
+    { id: 7, name: "Sar Bet", image: sar_bet },
+    { id: 8, name: "Gotera", image: gotera },
+    { id: 9, name: "Arat Kilo", image: arat_kilo },
+    { id: 10, name: "CMC", image: cmc },
   ];
 
   const calculateDailyAverage = (trafficData: TrafficData) => {
@@ -84,6 +81,7 @@ const Traffic = () => {
               src={area.image}
               alt={area.name}
               className={styles.trafficCardImage}
+              loading="lazy"
             />
             <h3 className={styles.trafficCardTitle}>{area.name}</h3>
           </div>
