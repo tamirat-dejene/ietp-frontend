@@ -15,7 +15,7 @@ const WarningCard = () => {
     useEffect(() => {
         let API_URL = process.env.API_URL || 'http://localhost:5000';
         // trim http:// or https:// from API_URL
-        API_URL = API_URL.replace(/^https?:\/\//, 'ws://');
+        API_URL = API_URL.replace(/^https?:\/\//, 'wss://');
         websocket.current = new WebSocket(`${API_URL}/arduino/upload`);
         const ws = websocket.current;
         ws.onopen = () => console.log('Connected to WebSocket');
