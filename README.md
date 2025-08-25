@@ -48,20 +48,21 @@ The project delivers a fully functional prototype featuring:
 * **Data Pipeline**: WebSocket-based pipeline ensures low-latency updates
 * **Monitoring Dashboard**: Visualizes live traffic conditions in a clean UI
 * **Scalable Design**: Prototype structured for extension into a full-scale smart traffic system
-
+  
 ## 🖼️ Demo & Screenshots
 
-### Dashboard – Live Traffic Monitoring
+### `dashboard.png`
 
-![Dashboard Placeholder](docs/screenshots/dashboard_live.png)
+![dashboard.png](docs/dashboard.png)
 
-### Dashboard – Vehicle Speed Detection
+### `analysis.png`
 
-![Dashboard Placeholder](docs/screenshots/dashboard_speed.png)
+![analysis.png](docs/analysis.png)
 
-### Hardware Setup (Arduino + ESP32-CAM)
+### `login_page.png`
 
-![Hardware Placeholder](docs/screenshots/hardware_setup.png)
+![login\_page.png](docs/login_page.png)
+
 
 ## 📈 Results
 
